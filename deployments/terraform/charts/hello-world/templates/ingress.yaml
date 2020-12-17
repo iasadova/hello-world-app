@@ -1,11 +1,11 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "hello-word.fullname" . -}}
+{{- $fullName := include "hello-world.fullname" . -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-{{ include "hello-word.labels" . | indent 4 }}
+{{ include "hello-world.labels" . | indent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}

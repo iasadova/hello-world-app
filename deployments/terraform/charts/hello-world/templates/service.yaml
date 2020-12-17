@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "hello-word.fullname" . }}
+  name: {{ include "hello-world.fullname" . }}
   labels:
-{{ include "hello-word.labels" . | indent 4 }}
+{{ include "hello-world.labels" . | indent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,5 +12,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app.kubernetes.io/name: {{ include "hello-word.name" . }}
+    app.kubernetes.io/name: {{ include "hello-world.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
